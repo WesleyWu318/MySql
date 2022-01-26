@@ -48,8 +48,24 @@ CREATE TABLE `student`( // 建立表格
   `major` VARCHAR(20) // 加入表格屬性
 );
 
-DESCRIBE `student`; // 顯示指定的表格
+DESCRIBE `student`; // 顯示指定表格的屬性
 DROP TABLE `student`; // 刪除指定的表格
 
 ALTER TABLE `student` ADD gpa(成績平均積點) DECIMAL(3,2); // 將指定表格加入新屬性
 ALTER TABLE `student` DROP COLUMN gpa(成績平均積點); // 將指定表格刪除指定屬性
+
+===================
+
+* INSERT *
+
+===================
+
+INSERT INTO `student` VALUES(1, "小明", NULL); // 將資料填入指定表格中 
+  Ps. 屬性要對應加入表格時的順序
+  
+INSERT INTO `student`(`name`, `major`, `student_id`) VALUES("小紫", NULL, 4);  // 將資料填入指定表格中(已決定加入順序)
+  Ps. NULL => 為空
+  
+SELECT * FROM `student`; // 顯示指定表格的全部資料
+  Ps. " * " => 全部
+  
