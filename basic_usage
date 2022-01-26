@@ -1,4 +1,4 @@
-* DATABASE_DEFINITION *
+* DATABASE_DEFINITION 資料庫定義 *
 
 ==================
 
@@ -6,13 +6,13 @@ CREATE DATABASE `database_name`; // 創建資料庫
 
 SHOW DATABASE; // 顯示所有創建的資料庫(包含系統內建)
 
-DROP DATABASE `database_name`; // 刪除指定的資料庫
+DROP DATABASE `database_name`;  // 刪除指定的資料庫
 
 USE `database` // 現在要使用哪個資料庫做新增和修改
 
 ===================
 
-* COMMEN_DATA_TYPES *
+* COMMEN_DATA_TYPES 基本資料結構 *
 
 ===================
 
@@ -38,25 +38,25 @@ TIMESTAMP    時間戳記
 
 ===================
 
-* TABLE *
+* TABLE 表格 *
 
 ===================
 
 CREATE TABLE `student`( // 建立表格
   `student_id` INT PRIMARY KEY, // 加入表格屬性並設定為" PERIMARY KEY "(不會有重複的資料)
-  `name` VARCHAR(20), // 加入表格屬性
-  `major` VARCHAR(20) // 加入表格屬性
+  `name` VARCHAR(20),  // 加入表格屬性
+  `major` VARCHAR(20)  // 加入表格屬性
 );
 
-DESCRIBE `student`; // 顯示指定表格的屬性
+DESCRIBE `student`;   // 顯示指定表格的屬性
 DROP TABLE `student`; // 刪除指定的表格
 
 ALTER TABLE `student` ADD gpa(成績平均積點) DECIMAL(3,2); // 將指定表格加入新屬性
-ALTER TABLE `student` DROP COLUMN gpa(成績平均積點); // 將指定表格刪除指定屬性
+ALTER TABLE `student` DROP COLUMN gpa(成績平均積點);      // 將指定表格刪除指定屬性
 
 ===================
 
-* INSERT *
+* INSERT 插入 *
 
 ===================
 
@@ -68,4 +68,17 @@ INSERT INTO `student`(`name`, `major`, `student_id`) VALUES("小紫", NULL, 4); 
   
 SELECT * FROM `student`; // 顯示指定表格的全部資料
   Ps. " * " => 全部
-  
+
+===================
+
+* CONSTRAINT 約束 *
+
+===================
+
+CREATE TABLE `student`(
+	`student_id` INT AUTO_INCREMENT, // " AUTO_INCREMENT " 自動隨著加入順序加一，不須手動填入
+    `name` VARCHAR(20) NOT NULL,   // " NOT NULL " 指定不能為NULL，如果填入為NULL會出錯
+    `major` VARCHAR(20) UNIQUE,    // " UNIQUE " 指定不能有相同的值，如果重複的值會出錯
+    `class` INT DEFAULT "202",     // " DEFAULT " 如果沒有填入會預設成指定內容
+    PRIMARY KEY(`student_id`)
+);
