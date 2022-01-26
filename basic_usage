@@ -2,21 +2,20 @@
 
 ==================
 
-CREATE DATABASE `database`; //創建資料庫
+CREATE DATABASE `database_name`; // 創建資料庫
 
-SHOW DATABASE; //顯示所有創建的資料庫(包含系統內建)
+SHOW DATABASE; // 顯示所有創建的資料庫(包含系統內建)
 
-DROP DATABASE `database`; //刪除指定的資料庫
+DROP DATABASE `database_name`; // 刪除指定的資料庫
 
-USE `database` //現在要使用哪個資料庫做新增和修改
+USE `database` // 現在要使用哪個資料庫做新增和修改
 
 ===================
-
-
 
 * COMMEN_DATA_TYPES *
 
 ===================
+
 INT          整數
 
 DECIMAL(m,n) 浮點數 
@@ -37,3 +36,20 @@ TIMESTAMP    時間戳記
   Ex. YYYY-MM-DD HH-MM-SS
   =>  2020-10-10 17-20-59
 
+===================
+
+* TABLE *
+
+===================
+
+CREATE TABLE `student`( // 建立表格
+  `student_id` INT PRIMARY KEY, // 加入表格屬性並設定為" PERIMARY KEY "(不會有重複的資料)
+  `name` VARCHAR(20), // 加入表格屬性
+  `major` VARCHAR(20) // 加入表格屬性
+);
+
+DESCRIBE `student`; // 顯示指定的表格
+DROP TABLE `student`; // 刪除指定的表格
+
+ALTER TABLE `student` ADD gpa(成績平均積點) DECIMAL(3,2); // 將指定表格加入新屬性
+ALTER TABLE `student` DROP COLUMN gpa(成績平均積點); // 將指定表格刪除指定屬性
