@@ -1,1 +1,39 @@
+* DATABASE_DEFINITION *
+
+==================
+
+CREATE DATABASE `database`; //創建資料庫
+
+SHOW DATABASE; //顯示所有創建的資料庫(包含系統內建)
+
+DROP DATABASE `database`; //刪除指定的資料庫
+
+USE `database` //現在要使用哪個資料庫做新增和修改
+
+===================
+
+
+
+* COMMEN_DATA_TYPES *
+
+===================
+INT          整數
+
+DECIMAL(m,n) 浮點數 
+  m => 總共位數, n => 小數點後位數
+  Ex. DECIMAL(3,2) => 3.69
+  
+VARCHAR(n)   字串
+  n => MAX_SIZE
+
+BLOB         二進制檔案
+  (Binary Large Object) 
+  Ex. 圖片,影片,檔案
+  
+DATE         日期
+  Ex. YYYY-MM-DD => 2021-03-18
+
+TIMESTAMP    時間戳記
+  Ex. YYYY-MM-DD HH-MM-SS
+  =>  2020-10-10 17-20-59
 
