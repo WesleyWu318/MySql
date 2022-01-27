@@ -76,7 +76,7 @@ SELECT * FROM `student`; // 顯示指定表格的全部資料
 ===================
 
 CREATE TABLE `student`(
-	`student_id` INT AUTO_INCREMENT, // " AUTO_INCREMENT " 自動隨著加入順序加一，不須手動填入
+    `student_id` INT AUTO_INCREMENT, // " AUTO_INCREMENT " 自動隨著加入順序加一，不須手動填入
     `name` VARCHAR(20) NOT NULL,   // " NOT NULL " 指定不能為NULL，如果填入為NULL會出錯
     `major` VARCHAR(20) UNIQUE,    // " UNIQUE " 指定不能有相同的值，如果重複的值會出錯
     `class` INT DEFAULT "202",     // " DEFAULT " 如果沒有填入會預設成指定內容
