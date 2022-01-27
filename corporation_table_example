@@ -39,3 +39,17 @@ CREATE TABLE `work_with`(
     FOREIGN KEY(`emp_id`) REFERENCES `employee`(`emp_id`) ON DELETE CASCADE,
     FOREIGN KEY(`client_id`) REFERENCES `client`(`client_id`) ON DELETE CASCADE
 );
+
+INSERT INTO `branch` VALUES(1, "研發", NULL);
+INSERT INTO `branch` VALUES(2, "行政", NULL);
+INSERT INTO `branch` VALUES(3, "資訊", NULL);
+
+INSERT INTO `employee` VALUES(206, '小黃', '1998-10-08', 'F', 50000, 1, NULL);
+INSERT INTO `employee` VALUES(207, '小綠', '1995-09-16', 'M', 29000, 2, 206);
+INSERT INTO `employee` VALUES(208, '小黑', '2000-12-19', 'M', 25000, 3, 206);
+INSERT INTO `employee` VALUES(209, '小白', '1997-01-22', 'F', 39000, 3, 207);
+INSERT INTO `employee` VALUES(210, '小藍', '1925-11-10', 'F', 84000, 1, 207);
+
+UPDATE `branch`
+SET `manager_id` = 206
+WHERE `branch_id` = 1;
