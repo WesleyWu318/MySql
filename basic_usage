@@ -1,3 +1,8 @@
+
+
+=== 大寫為 KEY WORD ===
+
+
 * DATABASE_DEFINITION 資料庫定義 *
 
 ==================
@@ -82,3 +87,30 @@ CREATE TABLE `student`(
     `class` INT DEFAULT "202",     // " DEFAULT " 如果沒有填入會預設成指定內容
     PRIMARY KEY(`student_id`)
 );
+
+===================
+
+* UPDATE & DELETE 更新與刪除 *
+
+===================
+
+UPDATE `student`  // 選定要進行更新的表格
+SET `name` = '小灰' ,`major` = '社會'     // 設定更改後的資料，可設定多個
+WHERE `student_id` = 1 OR `score` >= 60; // 設定更改的條件，可設定多個( 用 AND / OR 連接 )
+  條件:
+      >=  大於等於   =  等於
+      >   大於      <>  不等於
+      <=  小於等於
+      <   小於
+  Ps. 可以沒有WHERE條件 => 代表整個表格全部更新
+  
+DELETE FROM `student`  // 選定要進行刪除的表格
+WHERE `student_id` = 5 AND `score` <> 0; // 設定刪除的條件，可設定多個( 用 AND / OR 連接 )
+  條件:
+      >=  大於等於   =  等於
+      >   大於      <>  不等於
+      <=  小於等於
+      <   小於
+  Ps. 可以沒有WHERE條件 => 代表整個表格全部更新
+  
+
