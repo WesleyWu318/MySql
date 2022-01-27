@@ -53,3 +53,17 @@ INSERT INTO `employee` VALUES(210, '小藍', '1925-11-10', 'F', 84000, 1, 207);
 UPDATE `branch`
 SET `manager_id` = 206
 WHERE `branch_id` = 1;
+
+UPDATE `branch`
+SET `manager_id` = 207
+WHERE `branch_id` = 2;
+
+UPDATE `branch`
+SET `manager_id` = 208
+WHERE `branch_id` = 3;
+
+INSERT INTO `client` VALUES(400, '阿狗', '12345678');
+INSERT INTO `client` VALUES(401, '阿貓', '87654321');
+INSERT INTO `client` VALUES(402, '阿豬', '13572468');
+INSERT INTO `client` VALUES(403, '阿牛', '24681357');
+INSERT INTO `client` VALUES(404, '阿雞', '87436521');
