@@ -1,7 +1,10 @@
 
+* NOTE_RULES *
 
-=== 大寫為 KEY WORD ===
+1. 大寫為 KEY WORD
+2. (optional) => 此行非必要(可加可不加)
 
+=================
 
 * DATABASE_DEFINITION 資料庫定義 *
 
@@ -70,9 +73,6 @@ INSERT INTO `student` VALUES(1, "小明", NULL); // 將資料填入指定表格�
   
 INSERT INTO `student`(`name`, `major`, `student_id`) VALUES("小紫", NULL, 4);  // 將資料填入指定表格中(已決定加入順序)
   Ps. NULL => 為空
-  
-SELECT * FROM `student`; // 顯示指定表格的全部資料
-  Ps. " * " => 全部
 
 ===================
 
@@ -96,7 +96,7 @@ CREATE TABLE `student`(
 
 UPDATE `student`  // 選定要進行更新的表格
 SET `name` = '小灰' ,`major` = '社會'     // 設定更改後的資料，可設定多個
-WHERE `student_id` = 1 OR `score` >= 60; // 設定更改的條件，可設定多個( 用 AND / OR 連接 )
+WHERE `student_id` = 1 OR `score` >= 60; // 設定更改的條件，可設定多個( 用 AND / OR 連接 ) (optional)
   條件:
       >=  大於等於   =  等於
       >   大於      <>  不等於
@@ -105,7 +105,7 @@ WHERE `student_id` = 1 OR `score` >= 60; // 設定更改的條件，可設定多
   Ps. 可以沒有WHERE條件 => 代表整個表格全部更新
   
 DELETE FROM `student`  // 選定要進行刪除的表格
-WHERE `student_id` = 5 AND `score` <> 0; // 設定刪除的條件，可設定多個( 用 AND / OR 連接 )
+WHERE `student_id` = 5 AND `score` <> 0; // 設定刪除的條件，可設定多個( 用 AND / OR 連接 ) (optional)
   條件:
       >=  大於等於   =  等於
       >   大於      <>  不等於
@@ -113,4 +113,18 @@ WHERE `student_id` = 5 AND `score` <> 0; // 設定刪除的條件，可設定多
       <   小於
   Ps. 可以沒有WHERE條件 => 代表整個表格全部更新
   
+===================
+
+* SELECT 取得資料 *
+
+===================
+
+SELECT 'name' / 'student_id' / *  // 選擇顯示哪一項屬性，或全部屬性(*)
+FROM `student`                    // 從哪個表格
+WHERE `major`IN('歷史', '英文', '生物') // 設定選擇的條件 (optional)
+  Ps. 等同於 WHERE `major` = '歷史' OR `major` = '英文' OR `major` = '生物'
+ORDER BY `score` DESC; // 設定排序方式 (optional)
+  DESC => descent下降(降序) 為預設
+  ASC => ascent上升(升序)
+LIMIT 2; // 限制資料個數 (optional)
 
