@@ -9,7 +9,7 @@ CREATE TABLE `employee`(
 );
 
 CREATE TABLE `branch`(
-	`branch_id` INT PRIMARY KEY,
+    `branch_id` INT PRIMARY KEY,
     `branch_name` VARCHAR(20),
     `manager_id` INT,
     FOREIGN KEY (`manager_id`) REFERENCES `employee` (`emp_id`) ON DELETE SET NULL
@@ -32,7 +32,7 @@ CREATE TABLE `client`(
 );
 
 CREATE TABLE `work_with`(
-	`emp_id` INT,
+    `emp_id` INT,
     `client_id` INT,
     `total_sales` INT,
     PRIMARY KEY(`emp_id`, `client_id`),
