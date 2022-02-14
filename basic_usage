@@ -120,6 +120,7 @@ WHERE `student_id` = 5 AND `score` <> 0; // 設定刪除的條件，可設定多
 ===================
 
 SELECT 'name' / 'student_id' / *  // 選擇顯示哪一項屬性，或全部屬性(*)
+  SELECT DISTINCT 'name' => 不會重複 (optional)
 FROM `student`                    // 從哪個表格
 WHERE `major`IN('歷史', '英文', '生物') // 設定選擇的條件 (optional)
   Ps. 等同於 WHERE `major` = '歷史' OR `major` = '英文' OR `major` = '生物'
@@ -127,4 +128,29 @@ ORDER BY `score` DESC; // 設定排序方式 (optional)
   DESC => descent下降(降序) 為預設
   ASC => ascent上升(升序)
 LIMIT 2; // 限制資料個數 (optional)
+  
+===================
 
+* AGGTRAGTE FUNCTIONS 聚合函數 *
+
+===================
+
+SELECT COUNT(*) FROM `employee`; // 顯示指定表格的資料總筆數
+
+SELECT COUNT(`sup_id`) FROM `employee`; // 顯示指定表格有sup_id屬性的 (非NULL) 資料總筆數
+
+SELECT COUNT(*)
+FROM `employee`
+WHERE `birth_date` > '1970-01-01' AND `sex` = 'F'; // 顯示指定表格中出生於1970-01-01之後的女性資料總筆數
+
+SELECT AVG(`salary`) // 顯示指定表格中指定屬性的平均值
+FROM `employee`;
+
+SELECT SUM(`salary`) // 顯示指定表格中指定屬性的總和
+FROM `employee`;
+
+SELECT MAX(`salary`) // 顯示指定表格中指定屬性的最大值
+FROM `employee`;
+
+SELECT MIN(`salary`) // 顯示指定表格中指定屬性的最小值
+FROM `employee`;
