@@ -12,7 +12,7 @@
 
 CREATE DATABASE `database_name`; // 創建資料庫
 
-SHOW DATABASE; // 顯示所有創建的資料庫(包含系統內建)
+SHOW DATABASES; // 顯示所有創建的資料庫(包含系統內建)
 
 DROP DATABASE `database_name`;  // 刪除指定的資料庫
 
