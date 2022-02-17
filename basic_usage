@@ -177,3 +177,24 @@ WHERE `client_name` LIKE '阿%'; // 顯示指定表格中指定屬性首字為"�
 SELECT * FROM `employee`
 WHERE `birth_date` LIKE '_____12%'; // 顯示指定表格中指定屬性符合第六字元為'1'且第七字元為'2'的資料
   Ps. % => 代表任意單個字元
+  
+===================
+
+* UNION 聯集 *
+
+===================
+
+SELECT `name` AS `new_name` FROM `employee` // 將聯集後表格顯示的屬性名稱從name改為total ( 預設用第一個搜尋的屬性當作聯集後的屬性名稱 )
+UNION
+SELECT `client_name` FROM `client`
+UNION
+SELECT `branch_name` FROM `branch`; // 顯示"所有"指定表格中指定屬性的資料聯集(全部加起來一次秀出來)
+  Ps. 只能聯集資料型態一樣的資料
+  
+SELECT `emp_id` AS `total_id`, `name` AS `total_name` FROM 	`employee` // 將聯集後表格顯示的屬性名稱從emp_id改為total_id，從name改為total_name
+UNION
+SELECT `client_id`, `client_name` FROM `client`; // 顯示"所有"指定表格中指定屬性的資料聯集(全部加起來一次秀出來)
+
+SELECT `salary` FROM `employee` // 預設用第一個搜尋的屬性當作聯集後的屬性名稱 ( salary )
+UNION
+SELECT `total_sales` FROM `work_with`; // 顯示"所有"指定表格中指定屬性的資料聯集(全部加起來一次秀出來)
