@@ -154,3 +154,26 @@ FROM `employee`;
 
 SELECT MIN(`salary`) // 顯示指定表格中指定屬性的最小值
 FROM `employee`;
+  
+===================
+
+* WILDCARDS 萬用字元 *
+
+===================
+
+SELECT * FROM `client`
+WHERE `phone` LIKE '123%'; // 顯示指定表格中指定屬性是"123"開頭字串的資料
+  Ps. % => 代表任意多個字元
+  
+SELECT * FROM `client`
+WHERE `phone` LIKE '%512'; // 顯示指定表格中指定屬性是"512"結尾字串的資料  
+  
+SELECT * FROM `client`
+WHERE `phone` LIKE '%345%'; // 顯示指定表格中指定屬性有包含"345"子字串的資料  
+  
+SELECT * FROM `client`
+WHERE `client_name` LIKE '阿%'; // 顯示指定表格中指定屬性首字為"阿"的資料
+
+SELECT * FROM `employee`
+WHERE `birth_date` LIKE '_____12%'; // 顯示指定表格中指定屬性符合第六字元為'1'且第七字元為'2'的資料
+  Ps. % => 代表任意單個字元
