@@ -44,7 +44,7 @@ TIMESTAMP    時間戳記
   Ex. YYYY-MM-DD HH-MM-SS
   =>  2020-10-10 17-20-59
 
-===================
+================/===
 
 * TABLE 表格 *
 
@@ -198,3 +198,22 @@ SELECT `client_id`, `client_name` FROM `client`; // 顯示"所有"指定表格�
 SELECT `salary` FROM `employee` // 預設用第一個搜尋的屬性當作聯集後的屬性名稱 ( salary )
 UNION
 SELECT `total_sales` FROM `work_with`; // 顯示"所有"指定表格中指定屬性的資料聯集(全部加起來一次秀出來)
+
+  
+===================
+
+* JOIN 連接 *
+
+===================
+
+SELECT `employee`.`emp_id`, `employee`.`name`,`branch`.`branch_id` // 連接表格後顯示指定的屬性
+FROM `employee` JOIN `branch` // 兩張表格連接
+ON `employee`.`emp_id` = `branch`.`manager_id`; // 兩張表格連接的條件
+  Ps. `employee`.`emp_id` => "表格"."屬性" ( 可用來區分不同表格的相同名稱屬性 )
+
+SELECT * // 連接表格後顯示所有的屬性
+FROM `employee` LEFT JOIN `branch` // 兩張表格連接且左邊表格 ( `employee` ) 無視連結的條件有無成立，都會回傳所有的資料
+ON `employee`.`emp_id` = `branch`.`manager_id`;
+  Ps. 此程式右邊的表格條件不成立還是會回傳NULL
+      LEFT JOIN // 左邊表格無視連結的條件有無成立，都會回傳所有的資料
+      RIGHT JOIN // 右邊表格無視連結的條件有無成立，都會回傳所有的資料
