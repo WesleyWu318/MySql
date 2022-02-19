@@ -198,7 +198,6 @@ SELECT `client_id`, `client_name` FROM `client`; // 顯示"所有"指定表格�
 SELECT `salary` FROM `employee` // 預設用第一個搜尋的屬性當作聯集後的屬性名稱 ( salary )
 UNION
 SELECT `total_sales` FROM `work_with`; // 顯示"所有"指定表格中指定屬性的資料聯集(全部加起來一次秀出來)
-
   
 ===================
 
@@ -217,3 +216,27 @@ ON `employee`.`emp_id` = `branch`.`manager_id`;
   Ps. 此程式右邊的表格條件不成立還是會回傳NULL
       LEFT JOIN // 左邊表格無視連結的條件有無成立，都會回傳所有的資料
       RIGHT JOIN // 右邊表格無視連結的條件有無成立，都會回傳所有的資料
+ 
+===================
+
+* SUBQUERY 子查詢 *
+
+===================
+
+SELECT `name`
+FROM `employee`
+WHERE `emp_id` = ( // SUBQUERY 只有一筆查詢回傳資料可用"="
+	SELECT `manager_id`
+	FROM `branch`
+	WHERE `branch_name` = '研發' // 將第一次查詢的結果變成第二次查詢的條件判斷
+);
+
+SELECT `name`
+FROM `employee`
+WHERE `emp_id` IN( // SUBQUERY 多筆查詢回傳資料要用"IN"
+	SELECT `emp_id`
+	FROM `work_with`
+	WHERE `total_sales` > 50000
+);
+
+DELECT FRO
